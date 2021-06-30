@@ -1,11 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<title>Save Web Form Data to Spreadsheets - Contact Form</title>
-<script
-  src="https://code.jquery.com/jquery-3.4.1.js"
-  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-  crossorigin="anonymous"></script>
+<title>Modelo Instrutores</title>
+<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
 <script>
 function SubForm (){
     $.ajax({
@@ -24,27 +21,27 @@ function SubForm (){
 </head>
 <body>
   <form id="myForm">
-    <label>Full Name</label>
+    <label>Nick 1</label>
     <br/>
     <input name="full_name" />
     <br/>
-    <label>Email</label>
+    <label>Nick 2</label>
     <br/>
     <input name="email" />
     <br/>
     <label>Age</label>
     <br/>
-    <input type="radio" id="age" name="age" value="18-35" /> 18-35<br/>
-    <input type="radio" id="age" name="age" value="35+" /> 35+<br/>
+    <input type="radio" id="age" name="age" value="18-35" /> Aprovado<br/>
+    <input type="radio" id="age" name="age" value="35+" /> Reprovado<br/>
     <br/>
-    <label>Message</label>
+    <label>Comentários</label>
     <br/>
     <textarea name="message">
     </textarea>
     <br/>
     <br/>
   </form>
-  <button onclick="SubForm()">Submit</button>
+  <button onclick="SubForm()">Enviar</button>
 </body>
 
 <script src=”https://code.jquery.com/jquery-3.4.1.js" integrity=”sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=” crossorigin=”anonymous”></script>
