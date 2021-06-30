@@ -1,0 +1,19 @@
+body{
+    background-color: rgb(0, 24, 68);
+}
+
+div {
+    left:50%;
+    top:40%;
+    margin-left:-100px;
+    margin-top:-50px;
+    position:absolute;
+}
+
+.input1 {
+    border-radius: 4px;
+    height: 50px;
+    width: 250px;
+    border-style: none;
+    margin-top: 0px;
+}
