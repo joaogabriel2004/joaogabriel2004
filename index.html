@@ -1,50 +1,26 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<title>Modelo Instrutores</title>
-<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
-<script>
-function SubForm (){
-    $.ajax({
-        url:'https://api.apispreadsheets.com/data/641/',
-        type:'post',
-        data:$("#myForm").serializeArray(),
-        success: function(){
-          alert("Form Data Submitted :)")
-        },
-        error: function(){
-          alert("There was an error :(")
-        }
-    });
-}
-</script>
+    <title>Modelo Instrutores</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
-  <form id="myForm">
-    <label>Nick 1</label>
-    <br/>
-    <input name="full_name" />
-    <br/>
-    <label>Nick 2</label>
-    <br/>
-    <input name="email" />
-    <br/>
-    <label>Age</label>
-    <br/>
-    <input type="radio" id="age" name="age" value="18-35" /> Aprovado<br/>
-    <input type="radio" id="age" name="age" value="35+" /> Reprovado<br/>
-    <br/>
-    <label>Comentários</label>
-    <br/>
-    <textarea name="message">
-    </textarea>
-    <br/>
-    <br/>
-  </form>
-  <button onclick="SubForm()">Enviar</button>
+    <div class="principal_container">
+            <h1 style="color: white;">CFSd - Formulário</h1>
+        <form id="myForm">
+            <input name="nick" class="nick input1" placeholder="Alunos Presentes:"/>
+            <br>
+            <input name="aprovados" class="input1" placeholder="Alunos Aprovados:" style="margin-top: 10px;"/>
+            <br>
+            <input name="comentarios" class="comentario input1" placeholder="Comentários:" style="margin-top: 10px;"/>
+            <br>
+        </form>
+        <button onclick="SubForm()" style="margin-top: 10px;"   >Enviar</button>
+    </div>
 </body>
 
-<script src=”https://code.jquery.com/jquery-3.4.1.js" integrity=”sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=” crossorigin=”anonymous”></script>
+<script src="https://code.jquery.com/jquery-3.4.1.js" integrity=”sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=” crossorigin=”anonymous”></script>
 <script>
     function SubForm (){
         $.ajax({
@@ -52,12 +28,11 @@ function SubForm (){
             type:'post',
             data:$("#myForm").serializeArray(),
             success: function(){
-              alert("Form Data Submitted :)")
             },
             error: function(){
-              alert("There was an error :(")
             }
         });
 }
 </script>
+<script src="index.js"></script>
 </html>
