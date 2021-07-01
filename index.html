@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
-    <div class="principal_container">
+    <div id="container1">
             <h1 style="color: white;">CFSd - Formulário</h1>
         <form id="myForm">
             <input name="nick" class="nick input1" placeholder="Alunos Presentes:"/>
@@ -18,21 +18,55 @@
         </form>
         <button onclick="SubForm()" style="margin-top: 10px;"   >Enviar</button>
     </div>
+
+    <div id="container2" hidden>
+        <div id="divisao_esquerda"></div>
+        <label style="color: white;font-weight: bold;">Nome de usuário:</label>
+        <br/>
+        <span id="nome_usuario"></span>
+    </div>
 </body>
 
 <script src="https://code.jquery.com/jquery-3.4.1.js" integrity=”sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=” crossorigin=”anonymous”></script>
 <script>
     function SubForm (){
-        $.ajax({
-            url:'https://api.apispreadsheets.com/data/14850/',
-            type:'post',
-            data:$("#myForm").serializeArray(),
-            success: function(){
-            },
-            error: function(){
+        var instrutor = document.querySelector('.nick')
+        // verificar se o nome está vazio
+         if (instrutor.value == "") {
+            alert("Insira o nick do(s) recruta(s) presente(s)!");
+
+        // Deixa o input com o focus
+            instrutor.focus();
+        // retorna a função e não olha as outras linhas
+            return;
+        } else {
+            if(document.getElementById("container1").style.display == 'none') {
+                document.getElementById("container1").style.display = 'block';
+                document.getElementById("container2").style.display = 'none';
+            } else {
+                document.getElementById("container1").style.display = 'none';
+                document.getElementById("container2").style.display = 'block';
             }
-        });
-}
+
+            var presentes = document.querySelector(".nick").value
+            document.getElementById("nome_usuario").innerHTML = presentes
+        }
+    }
 </script>
 <script src="index.js"></script>
 </html>
+
+
+
+<!--
+    $.ajax({
+        url:'https://api.apispreadsheets.com/data/14850/',
+        type:'post',
+        data:$("#myForm").serializeArray(),
+        success: function(){
+            alert('a')
+        },
+        error: function(){
+        }
+    });
+-->
