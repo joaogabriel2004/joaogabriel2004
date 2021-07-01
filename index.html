@@ -69,6 +69,12 @@
         var minutos = dataAtual.getMinutes(); 
 
         document.getElementById("horario_inicio").innerHTML = dia + "/" + mes + "/" + ano + " " + horas + ":" + minutos
+
+        var link = window.location.href
+        var usuario = link.substring(link.indexOf("=") + 1);
+        var instrutor_presente = (usuario).value
+
+        document.getElementById("nome_usuario").innerHTML = usuario
     } 
     function SubForm (){
         var instrutor = document.querySelector('.nick')
@@ -92,17 +98,11 @@
             var presentes = document.querySelector(".nick").value
             var aprovados = document.querySelector(".aprovados").value
             var comentarios = document.querySelector(".comentario").value
-            var link = window.location.href
-            usuario1 = link.substring(link.indexOf("=") + 1);
-            
-            
-            document.getElementById("nome_usuario").innerHTML = (usuario1).value
+    
             document.getElementById("alunos_presentes").innerHTML = presentes 
             document.getElementById("alunos_aprovados").innerHTML = aprovados 
             document.getElementById("coments").innerHTML = comentarios   
-           
-            
-          
+        
         }
     }
 </script>
