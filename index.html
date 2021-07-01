@@ -92,16 +92,17 @@
             var presentes = document.querySelector(".nick").value
             var aprovados = document.querySelector(".aprovados").value
             var comentarios = document.querySelector(".comentario").value
+            var link = window.location.href
+            usuario1 = link.substring(link.indexOf("=") + 1);
             
-
+            
+            document.getElementById("nome_usuario").innerHTML = (usuario1).value
             document.getElementById("alunos_presentes").innerHTML = presentes 
             document.getElementById("alunos_aprovados").innerHTML = aprovados 
             document.getElementById("coments").innerHTML = comentarios   
+           
             
-            var link = window.location.href
-            resultado = link.substring(link.indexOf("?") + 1);
-            
-            alert(resultado).value
+          
         }
     }
 </script>
