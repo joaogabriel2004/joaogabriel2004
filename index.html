@@ -11,7 +11,7 @@
         <form id="myForm">
             <input name="nick" class="nick input1" placeholder="Alunos Presentes:"/>
             <br>
-            <input name="aprovados" class="input1" placeholder="Alunos Aprovados:" style="margin-top: 10px;"/>
+            <input name="aprovados" class="aprovados input1" placeholder="Alunos Aprovados:" style="margin-top: 10px;"/>
             <br>
             <input name="comentarios" class="comentario input1" placeholder="Comentários:" style="margin-top: 10px;"/>
             <br>
@@ -20,15 +20,56 @@
     </div>
 
     <div id="container2" hidden>
-        <div id="divisao_esquerda"></div>
-        <label style="color: white;font-weight: bold;">Nome de usuário:</label>
-        <br/>
-        <span id="nome_usuario"></span>
+        <div id="divisao_esquerda">
+            <br/>
+            <label style="color: white;font-weight: bold;" class="alinhamento_esq">Nome de usuário:</label>
+            <br/>
+            <span id="nome_usuario" class="alinhamento_esq"></span>
+            <br/>
+            <br/>
+            <label style="color: white;font-weight: bold;" class="alinhamento_esq">Horário de início:</label>
+            <br/>
+            <span id="horario_inicio" class="alinhamento_esq"></span>
+            <br/>
+            <br/>
+            <label style="color: white;font-weight: bold;" class="alinhamento_esq">Curso aplicado:</label>
+            <br/>
+            <span id="curso_aplicado" class="alinhamento_esq">Curso de Formação de Soldados (CFSd)</span>
+        </div>
+
+        <div id="divisao_direita">
+            <br/>
+            <label style="color: white;font-weight: bold;" class="alinhamento_esq">Alunos presentes:</label>
+            <br/>
+            <span id="alunos_presentes" class="alinhamento_dir"></span>
+            <br/>
+            <br/>
+            <label style="color: white;font-weight: bold;" class="alinhamento_esq">Alunos aprovados:</label>
+            <br/>
+            <span id="alunos_aprovados" class="alinhamento_dir"></span>
+            <br/>
+            <br/>
+            <label style="color: white;font-weight: bold;" class="alinhamento_esq">Comentários:</label>
+            <br/>
+            <span id="coments" class="alinhamento_dir"></span>
+        </div>
+        
     </div>
 </body>
 
 <script src="https://code.jquery.com/jquery-3.4.1.js" integrity=”sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=” crossorigin=”anonymous”></script>
 <script>
+
+    window.onload = function () { 
+        var dataAtual = new Date();
+        var dia = dataAtual.getDate();
+        var mes = (dataAtual.getMonth() + 1);
+        var ano = dataAtual.getFullYear();
+        var horas = dataAtual.getHours();
+        var minutos = dataAtual.getMinutes(); 
+
+        document.getElementById("horario_inicio").innerHTML = dia + "/" + mes + "/" + ano + " " + horas + ":" + minutos
+    } 
     function SubForm (){
         var instrutor = document.querySelector('.nick')
         // verificar se o nome está vazio
@@ -49,7 +90,18 @@
             }
 
             var presentes = document.querySelector(".nick").value
-            document.getElementById("nome_usuario").innerHTML = presentes
+            var aprovados = document.querySelector(".aprovados").value
+            var comentarios = document.querySelector(".comentario").value
+            
+
+            document.getElementById("alunos_presentes").innerHTML = presentes 
+            document.getElementById("alunos_aprovados").innerHTML = aprovados 
+            document.getElementById("coments").innerHTML = comentarios   
+            
+            var link = window.location.href
+            resultado = link.substring(link.indexOf("%") + 1);
+            
+            alert(resultado).value
         }
     }
 </script>
