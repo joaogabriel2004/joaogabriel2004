@@ -1,54 +1,165 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirecionando ao formulário</title>
-    <script>
-        window.onload = function() {
-            url = window.location.href
-            alert(url)
-
-            var dataAtual = new Date();
-            var dia = dataAtual.getDate();
-            var mes = (dataAtual.getMonth() + 1);
-            var ano = dataAtual.getFullYear();
-            var horas = dataAtual.getHours();
-            var minutos = dataAtual.getMinutes();
-            var horario_comeco
-
-            if (horas < 10){
-                var horario_comeco = "0" + horas + ":" + minutos
-            } 
-
-            if (minutos < 10) {
-                var horario_comeco = "" + horas + ":" + "0" + minutos
-            } 
-
-            if (horas && minutos < 10){
-                var horario_comeco = "0" + horas + ":" + "0" + minutos
-            }
-
-            if (horas && minutos >= 10){
-                var horario_comeco = "" + horas + ":" + minutos
-            }
-
-            var link = window.location.href
-            var usuario = link.substring(link.indexOf("=") + 1);
-            var nick = (usuario).value
-            var trecho1 = "https://docs.google.com/forms/d/e/1FAIpQLScASvsO-hPsZJqHOpGfmjmy1ZCQliAciZ2xQaBuOax3TvACxg/viewform?entry.1285543461="
-            var trecho2 = "&entry.1467767683="
-            var urlget = trecho1 + link.substring(link.indexOf("=") + 1) + trecho2 + horario_comeco
-            window.location.href = urlget
-            
-        }
-
-    </script>
+    <title>Modelo Instrutores</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
-    <h1 id="horario_inicio">a</h1>
-    <h1 id="nick_sup"></h1>
-    <h1 id="url"></h1>
+    <div id="container1">
+            <h1 style="color: white;">CFSd - Formulário</h1>
+        <form id="myForm">
+            <textarea name="testes" id="nick_instrutor" hidden></textarea>
+            <input name="nick" class="nick input1" placeholder="Alunos Presentes:"/>
+            <br>
+            <input name="aprovados" class="aprovados input1" placeholder="Alunos Aprovados:" style="margin-top: 10px;"/>
+            <br>
+            <input name="comentarios" class="comentario input1" placeholder="Comentários:" style="margin-top: 10px;"/>
+            <br>
+        </form>
+        <button onclick="SubForm()" style="margin-top: 10px;">Enviar</button>
+    </div>
+
+
+    <div id="container2" hidden>
+        <h1><span class="title">CFSd -</span> Confirmação de aula</h1>
+        <div id="confirmacao">
+            <div id="divisao_esquerda">
+                <br/>
+                <label style="color: white;font-weight: bold;" class="alinhamento_esq">Nome de usuário:</label>
+                <br/>
+                <span id="nome_usuario" class="alinhamento_esq"></span>
+                <br/>
+                <br/>
+                <label style="color: white;font-weight: bold;" class="alinhamento_esq">Horário de início:</label>
+                <br/>
+                <span id="horario_inicio" class="alinhamento_esq"></span>
+                <br/>
+                <br/>
+                <label style="color: white;font-weight: bold;" class="alinhamento_esq">Curso aplicado:</label>
+                <br/>
+                <span id="curso_aplicado" class="alinhamento_esq">Curso de Formação de Soldados (CFSd)</span>
+            </div>
+
+            <div id="divisao_direita">
+                <br/>
+                <label style="color: white;font-weight: bold;" class="alinhamento_esq">Alunos presentes:</label>
+                <br/>
+                <span id="alunos_presentes" class="alinhamento_dir"></span>
+                <br/>
+                <br/>
+                <label style="color: white;font-weight: bold;" class="alinhamento_esq">Alunos aprovados:</label>
+                <br/>
+                <span id="alunos_aprovados" class="alinhamento_dir"></span>
+                <br/>
+                <br/>
+                <label style="color: white;font-weight: bold;" class="alinhamento_esq">Comentários:</label>
+                <br/>
+                <span id="coments" class="alinhamento_dir"></span>
+            </div>
+        </div>
+        <button class="botao_enviar" onclick="enviarform()">Enviar</button>
+    </div>
 </body>
+
+<script src="https://code.jquery.com/jquery-3.4.1.js" integrity=”sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=” crossorigin=”anonymous”></script>
+<script>
+
+    window.onload = function () { 
+        var dataAtual = new Date();
+        var dia = dataAtual.getDate();
+        var mes = (dataAtual.getMonth() + 1);
+        var ano = dataAtual.getFullYear();
+        var horas = dataAtual.getHours();
+        var minutos = dataAtual.getMinutes();
+        var horario_comeco
+
+        if (horas < 10){
+            document.getElementById("horario_inicio").innerHTML = dia + "/" + mes + "/" + ano + " 0" + horas + ":" + minutos
+            var horario_comeco = dia + "/" + mes + "/" + ano + " 0" + horas + ":" + minutos
+        } 
+
+        if (dia < 10) {
+            document.getElementById("horario_inicio").innerHTML = "0" + dia + "/" + mes + "/" + ano + " " + horas + ":" + minutos
+            var horario_comeco = "0" + dia + "/" + mes + "/" + ano + " " + horas + ":" + minutos
+        } 
+
+        if (mes < 10) {
+            document.getElementById("horario_inicio").innerHTML = dia + "/0" + mes + "/" + ano + " " + horas + ":" + minutos
+            var horario_comeco = dia + "/0" + mes + "/" + ano + " " + horas + ":" + minutos
+        }
+
+        if (mes && dia < 10){
+            document.getElementById("horario_inicio").innerHTML = "0" + dia + "/0" + mes + "/" + ano + " " + horas + ":" + minutos
+            var horario_comeco = "0" + dia + "/0" + mes + "/" + ano + " " + horas + ":" + minutos
+        }
+
+        var link = window.location.href
+        var usuario = link.substring(link.indexOf("=") + 1);
+        var instrutor_presente = (usuario).value
+
+        document.getElementById("nome_usuario").innerHTML = usuario
+        document.getElementById("nick_instrutor").innerHTML = usuario
+    } 
+    function SubForm (){
+        var instrutor = document.querySelector('.nick')
+        // verificar se o nome está vazio
+         if (instrutor.value == "") {
+            alert("Insira o nick do(s) recruta(s) presente(s)!");
+
+        // Deixa o input com o focus
+            instrutor.focus();
+        // retorna a função e não olha as outras linhas
+            return;
+        } else {
+            if(document.getElementById("container1").style.display == 'none') {
+                document.getElementById("container1").style.display = 'block';
+                document.getElementById("container2").style.display = 'none';
+            } else {
+                document.getElementById("container1").style.display = 'none';
+                document.getElementById("container2").style.display = 'block';
+            }
+
+            var presentes = document.querySelector(".nick").value
+            var aprovados = document.querySelector(".aprovados").value
+            var comentarios = document.querySelector(".comentario").value
+            var nick_ins = document.querySelector("#nome_usuario")
+            var testes = document.querySelector(".testes").value
+    
+            document.getElementById("alunos_presentes").innerHTML = presentes 
+            document.getElementById("alunos_aprovados").innerHTML = aprovados 
+            document.getElementById("coments").innerHTML = comentarios   
+
+        }
+    }
+
+    function enviarform () {
+        $.ajax({
+        url:'https://api.apispreadsheets.com/data/14945/',
+        type:'post',
+        data:$("#myForm").serializeArray(),
+        success: function(){
+        },
+        error: function(){
+        }
+        });
+    }
+
+</script>
+<script src="index.js"></script>
 </html>
+
+
+
+<!--
+    $.ajax({
+        url:'https://api.apispreadsheets.com/data/14945/',
+        type:'post',
+        data:$("#myForm").serializeArray(),
+        success: function(){
+        },
+        error: function(){
+        }
+        });
+    });
+-->
