@@ -2,7 +2,7 @@
 - 👀 I’m interested in learn programation
 - 🌱 I’m currently learning javascript
 - 💞️ I’m looking to collaborate on everything :)
-- 📫 How to reach me @oaoj_gj on instagram
+- 📫 You can meet me using @oaoj_gj on instagram
 
 <!---
 joaogabriel2004/joaogabriel2004 is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
