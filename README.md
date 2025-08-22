@@ -24,8 +24,9 @@
 
 ## 🌐 Onde me encontrar
 
-[![Linkedin](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)]((https://www.linkedin.com/in/joao-gabriel-jesus))  
-[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:joaogabrielsj2004@gmail.com)
+Linkedin: https://www.linkedin.com/in/joao-gabriel-jesus
+
+E-mail: joaogabrielsj20042gmail.com
 
 ---
 
